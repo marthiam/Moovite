@@ -99,10 +99,24 @@
                             $voyage["itineraire"],$voyage["type_trajet1"],$voyage["type_trajet2"]);
             $trajets[] = $trajet;
 
-            echo  $trajet->depart ."</br> ";
-            echo  $trajet->arrivee ."</br> ";
-            echo  $trajet->prixTrajet()."</br> ";
+            /* the following are just for checking echo*/
 
+            echo   "depart : ".$trajet->depart ."</br> ";
+            echo   "arrivee : ".$trajet->arrivee ."</br> ";
+            echo   "date depart : ".$trajet->date_depart ."</br> ";
+            echo   "date arrivee : ".$trajet->date_arrivee ."</br> ";
+            echo   "duree_train : ".$trajet->duree_train."</br> ";
+            echo   "duree_avion : ".$trajet->duree_avion ."</br> ";
+            echo   "duree_covoit : ".$trajet->duree_covoit."</br> ";
+            echo   "compagnie_avion : ".$trajet->compagnie_avion ."</br> ";
+            echo   "prix_train : ".$trajet->prix_train."</br> ";
+            echo   "prix_avion : ".$trajet->prix_avion ."</br> ";
+            echo   "prix_covoit : ".$trajet->prix_covoit."</br> ";
+            echo   "co2 : ".$trajet->co2 ."</br> ";
+            echo   "itineraire : ".$trajet->itineraire."</br> ";
+            echo   "type_trajet1 : ".$trajet->type_trajet1 ."</br> ";
+            echo   "type_trajet2 : ".$trajet->type_trajet2."</br> ";
+            echo   "prix  trajet  : ".$trajet->prixTrajet()."</br> ";
             echo "<hr>";
            }
       }
