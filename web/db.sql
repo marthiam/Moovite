@@ -38,6 +38,9 @@ CREATE TABLE `voyage` (
   `duree_train` time DEFAULT NULL,
   `duree_covoit` time DEFAULT NULL,
   `co2` double DEFAULT NULL,
+  `itineraire` varchar(45) DEFAULT NULL,
+  `type_trajet1` varchar(45) DEFAULT NULL,
+  `type_trajet2` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idvoyage`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -48,7 +51,7 @@ CREATE TABLE `voyage` (
 
 LOCK TABLES `voyage` WRITE;
 /*!40000 ALTER TABLE `voyage` DISABLE KEYS */;
-INSERT INTO `voyage` VALUES (1,'brest','antibes','2015-02-01 07:10:00','2015-02-01 21:10:00','sncf blablacar',70,65,0,'00:00:00','05:00:00','09:00:00',135),(2,'brest','antibes','2015-02-01 07:10:00','2015-02-01 21:10:00','sncf blablacar',70,0,65,'00:00:00','05:00:00','09:00:00',135),(3,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','sncf',155,0,0,'00:00:00','12:10:00','00:00:00',125),(4,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair blablacar',0,55,25,'01:30:00','00:00:00','00:50:00',140),(5,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair sncf',35,55,0,'01:30:00','00:40:00','00:00:00',134),(6,'brest','nice','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair sncf',35,55,0,'01:30:00','00:00:00','00:40:00',134),(7,'brest','lyon','2015-02-01 08:40:00','2015-02-01 17:50:00','sncf',95,0,0,'00:00:00','09:10:00','00:00:00',134),(8,'quimper','lyon','2015-02-01 08:40:00','2015-02-01 17:50:00','sncf',95,0,0,'00:00:00','09:10:00','00:00:00',132);
+INSERT INTO `voyage` VALUES (1,'brest','antibes','2015-02-01 07:10:00','2015-02-01 21:10:00','sncf blablacar',70,65,0,'00:00:00','05:00:00','09:00:00',135,NULL,NULL,NULL),(2,'brest','antibes','2015-02-01 07:10:00','2015-02-01 21:10:00','sncf blablacar',70,0,65,'00:00:00','05:00:00','09:00:00',135,'Brest-Paris-Antibes','train','covoiturage'),(3,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','sncf',155,0,0,'00:00:00','12:10:00','00:00:00',125,'Brest-Antibes','train',NULL),(4,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair blablacar',0,55,25,'01:30:00','00:00:00','00:50:00',140,'Brest-Marseille-Antibes','avion','covoiturage'),(5,'brest','antibes','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair sncf',35,55,0,'01:30:00','00:40:00','00:00:00',134,'Brest-Marseille-Antibes','avion','train'),(6,'brest','nice','2015-02-01 08:40:00','2015-02-01 20:50:00','raynair sncf',35,55,0,'01:30:00','00:00:00','00:40:00',134,'Brest-Marseille-Nice','avion','train'),(7,'brest','lyon','2015-02-01 08:40:00','2015-02-01 17:50:00','sncf',95,0,0,'00:00:00','09:10:00','00:00:00',134,'Brest-Lyon','train',NULL),(8,'quimper','lyon','2015-02-01 08:40:00','2015-02-01 17:50:00','sncf',95,0,0,'00:00:00','09:10:00','00:00:00',132,'Brest-Quinper','train',NULL);
 /*!40000 ALTER TABLE `voyage` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-08 19:01:18
+-- Dump completed on 2014-12-08 21:39:34
