@@ -57,7 +57,13 @@
 
           }
 
+          function covertionToSecond($str_time){
+            sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
 
+            $time_seconds = isset($seconds) ? $hours * 3600 + $minutes * 60 + $seconds : $hours * 60 + $minutes;
+
+            return $time_seconds;
+          }
 
           function choix($pref_covoit, $pref_train, $pref_avion)
               {
@@ -82,10 +88,13 @@
                 //la boucle de recherche de trajets conforme 
                 while($voyage = mysql_fetch_array($result)){
 
-                    $dureet= $voyage["duree_train"]+$voyage["duree_avion"]+$voyage["duree_covoit"] // la duree totale du trajet 
-                    $part_train = (100* ($voyage["duree_train"]))/ $dureet);                       // la part de duree en train
-                    $part_covoit = (100* ($voyage["duree_covoit"]))/ $dureet);                     // la part de duree en covoiturage
-                    $part_avion = (100* ($voyage["duree_avion"]))/ $dureet);                       // la part de duree en avion
+                    $duree_tain = covertionToSecond($voyage["duree_train"]);
+                    $duree_covoit = covertionToSecond($voyage["duree_covoit"]);
+                    $duree_avion = covertionToSecond($voyage["duree_avion"]);
+                    $dureet= $duree_avion+ $duree_covoit + $duree_train ; // la duree totale du trajet 
+                    $part_train = ((100* $duree_train)/ $dureet);                       // la part de duree en train
+                    $part_covoit = ((100* $duree_covoit)/ $dureet);                     // la part de duree en covoiturage
+                    $part_avion = ((100* $duree_avion)/ $dureet);                       // la part de duree en avion
                     $conforme= ($part_train <= $pref_train) && ($part_covoit <= $pref_covoit) && ($part_avion <= $pref_avion);
                     
                    if($conforme){ // quand le trajet est conforme 
