@@ -2,21 +2,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Page test</title>
     </head>
     <body>
         <h1>Test de l' algorithme</h1>
         
-        <?php var $voyage = new  Trajet("nice","toronto");
+        <?php           
 
-            $voyage -> choix(0,50,50);
-
-            echo "le voyage".$voyage;
-
+            echo "le voyage".choix("brest","antibes",0,100,100, '2015-02-01');
         ?>  
-
-
 
     </body>
 </html>
